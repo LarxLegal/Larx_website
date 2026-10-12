@@ -19,5 +19,6 @@ hero:
 
 <!--Page content-->
 <Home/>
+
 <VPFooter/>
 

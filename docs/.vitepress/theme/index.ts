@@ -51,8 +51,8 @@ export default {
         const favicon = document.querySelector<HTMLLinkElement>('link[rel="icon"]')
         if (!favicon) return
         const href = document.documentElement.classList.contains('dark')
-          ? '/Logo/logo_larx_dark.png'
-          : '/Logo/logo_larx.png'
+          ? '/Favicon/larx_logo.png'
+          : '/Favicon/larx_logo.png'
         if (favicon.getAttribute('href') !== href) favicon.href = href
       }
       // Fires when the user toggles light/dark mode.

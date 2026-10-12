@@ -27,6 +27,12 @@ export default defineConfig({
             new URL('./theme/components/VPNav.vue', import.meta.url)
           )
         },
+        {
+          find: /^.*\/VPNavBarTitle\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./theme/components/VPNavBarTitle.vue', import.meta.url)
+          )
+        },
       ]
     }
   },
@@ -50,8 +56,8 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: {
-      light: '/Logo/logo_larx.png',
-      dark: '/Logo/logo_larx_dark.png'
+      light: '/Logo/larx_logo.svg',
+      dark: '/Logo/larx_logo.svg'
     },
     footer: {
       message: 'Released under the <a href="https://github.com/vuejs/vitepress/blob/main/LICENSE">MIT License</a>.',
