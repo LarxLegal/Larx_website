@@ -8,19 +8,22 @@ import ClientManagementPage from './components/Pages/ClientManagementPage.vue'
 import CollaborationPage from './components/Pages/CollaborationPage.vue'
 import DefaultTheme from 'vitepress/theme'
 import FeaturesMenu from './components/FeaturesMenu.vue'
-import Filesharing from './components/Nav/Filesharing.vue'
-import Collaboration from './components/Nav/Collaboration.vue'
-import ClientManagement from './components/Nav/ClientManagement.vue'
-import DossierManagement from './components/Nav/DossierManagement.vue'
 import Features from './components/Hero/Features.vue'
-import Marketing from './components/Nav/Marketing.vue'
-import Security from './components/Nav/Security.vue'
 import { createPinia } from 'pinia';
 import VPFooter from 'vitepress/dist/client/theme-default/components/VPFooter.vue';
-
-
+// Client Nav Items
+import ClientPortal from './components/Nav/Client/ClientPortal.vue'
+import RealTime from './components/Nav/Client/RealTime.vue'
+import Collaboration from './components/Nav/Client/Collaboration.vue'
+import Security from './components/Nav/Client/Security.vue'
+// Firm Nav Items
+import NoDisruption from './components/Nav/Firm/NoDisruption.vue'
+import ClientManagement from './components/Nav/Firm/ClientManagement.vue'
+import DossierManagement from './components/Nav/Firm/DossierManagement.vue'
+import Marketing from './components/Nav/Firm/Marketing.vue'
 
 import './style.css'
+
 
 
 
@@ -33,7 +36,6 @@ export default {
     app.component('ClientManagementPage', ClientManagementPage)
     app.component('FeaturesMenu', FeaturesMenu)
     app.component('CollaborationPage', CollaborationPage)
-    app.component('Filesharing', Filesharing)
     app.component('Collaboration', Collaboration)
     app.component('ClientManagement', ClientManagement)
     app.component('DossierManagement', DossierManagement)
@@ -42,6 +44,10 @@ export default {
     app.component('Features', Features)
     app.component('Security', Security)
     app.component('VPFooter', VPFooter)
+    app.component('ClientPortal', ClientPortal)
+    app.component('RealTime', RealTime)
+    app.component('NoDisruption', NoDisruption)
+
   
 
     // Swap the favicon when the theme toggles. Guarded because this file
@@ -51,7 +57,7 @@ export default {
         const favicon = document.querySelector<HTMLLinkElement>('link[rel="icon"]')
         if (!favicon) return
         const href = document.documentElement.classList.contains('dark')
-          ? '/Favicon/larx_logo.png'
+          ? '/Favicon/larx_logo_night.png'
           : '/Favicon/larx_logo.png'
         if (favicon.getAttribute('href') !== href) favicon.href = href
       }

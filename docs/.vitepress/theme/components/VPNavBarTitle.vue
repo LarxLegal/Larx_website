@@ -41,14 +41,18 @@ const target = computed(() =>
     >
       <slot name="nav-bar-title-before" />
       <VPImage v-if="theme.logo" class="logo" :image="theme.logo" />
-      <span v-if="theme.siteTitle" v-html="theme.siteTitle"></span>
-      <span v-else-if="theme.siteTitle === undefined">{{ site.title }}</span>
+      <div class="title_sub_title">
+        <span v-if="theme.siteTitle" v-html="theme.siteTitle"></span>
+        <span v-else-if="theme.siteTitle === undefined">{{ site.title }}</span>
+        <p>Law Firm - Client engagement platform</p>
+      </div>
       <slot name="nav-bar-title-after" />
     </a>
   </div>
 </template>
 
 <style scoped>
+
 .title {
   display: flex;
   align-items: center;
@@ -59,6 +63,14 @@ const target = computed(() =>
   font-weight: 600;
   color: var(--vp-c-text-1);
   transition: opacity 0.25s;
+}
+.title_sub_title {
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-size: .8rem;
 }
 
 @media (min-width: 960px) {

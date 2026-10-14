@@ -1,167 +1,43 @@
 <script setup lang="ts">
 
+
 import { withBase } from 'vitepress'
 import { ref } from 'vue';
 import { useData } from 'vitepress'
+import VPHero from 'vitepress/dist/client/theme-default/components/VPHero.vue'
 
-// Destructure isDark from the shared data object
 
-const { isDark } = useData()
+
 
 const { frontmatter: fm } = useData()
-let iconColorNight = ref('#c16200');
-let iconColorDay = ref('#9a4224');
-
 </script>
 
 <template>
   <div class="hero">
-        <!-- Background video -->
-        <video
-            class="hero-video"
-            src="/video/corporate.mp4"
-            autoplay
-            loop
-            muted
-            playsinline
-        />
-
-        <!-- Dark overlay for text readability -->
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-            <!-- Hero text from index.md frontmatter, VitePress-style -->
-            <div class="hero-main">
-                <h1 v-if="fm.hero?.name" class="hero-name">{{ fm.hero.name }}</h1>
-                <p v-if="fm.hero?.text" class="hero-text">{{ fm.hero.text }}</p>
-                <p v-if="fm.hero?.tagline" class="hero-tagline">{{ fm.hero.tagline }}</p>
-
-                <div v-if="fm.hero?.actions?.length" class="hero-actions">
-                  <a
-                    v-for="action in fm.hero.actions"
-                    :key="action.link"
-                    class="hero-action"
-                    :class="action.theme === 'brand' ? 'hero-action--brand' : 'hero-action--alt'"
-                    :href="withBase(action.link)"
-                  >
-                    {{ action.text }}
-                  </a>
-                </div>
-            </div>
-
-             <!-- FEATURES -->
-
-            <div class="hero-features">
-              <!-- Feature 1: Client Portal -->
-              <a class="hero-feature" href="/filesharing">
-                <div class="hero-feature-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" :fill="isDark ? iconColorNight : iconColorDay" class="size-5">
-                    <path d="M13 4.5a2.5 2.5 0 1 1 .702 1.737L6.97 9.604a2.518 2.518 0 0 1 0 .792l6.733 3.367a2.5 2.5 0 1 1-.671 1.341l-6.733-3.367a2.5 2.5 0 1 1 0-3.475l6.733-3.366A2.52 2.52 0 0 1 13 4.5Z" />
-                  </svg>
-                </div>
-                <h2 class="hero-feature-title">Client Portal</h2>
-                <p class="hero-feature-details">Upload and share documents from anywhere only by authorised persons in a secure environment.</p>
-                <p class="hero-feature-link">Find out more →</p>
-
-
-                
-                
-              </a>
-              <!-- Feature 3: Document Management System -->
-               <a class="hero-feature" href="/dossier-management">
-                <div class="hero-feature-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" :fill="isDark ? iconColorNight : iconColorDay" class="size-5">
-                  <path d="M3 3.5A1.5 1.5 0 0 1 4.5 2h6.879a1.5 1.5 0 0 1 1.06.44l4.122 4.12A1.5 1.5 0 0 1 17 7.622V16.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 3 16.5v-13Z" />
-                  </svg>
-                </div>
-                <h2 class="hero-feature-title">Document Management System</h2>
-                <p class="hero-feature-details">Managem dossiers per client and allow only access to designated trusted persons.</p>
-                <p class="hero-feature-link">Find out more →</p>
-                
-                
-              </a>
-
-              <!-- Feature 2: Collaboration -->
-              <a class="hero-feature" href="/collaboration">
-                <div class="hero-feature-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" :stroke="isDark ? iconColorNight : iconColorDay" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25" />
-                  </svg>
-
-                </div>
-                <h2 class="hero-feature-title">Collaboration Environment</h2>
-                <p class="hero-feature-details">Full control over clients, teams and dossier access — managed from one secure dashboard.</p>
-                <p class="hero-feature-link">Find out more →</p>
-                
-              </a>
-
-              
-
-              <!-- Feature 4: Client Management -->
-              <a class="hero-feature" href="/client-management">
-                <div class="hero-feature-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" :fill="isDark ? iconColorNight : iconColorDay" class="size-5">
-                  <path d="M10 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM1.615 16.428a1.224 1.224 0 0 1-.569-1.175 6.002 6.002 0 0 1 11.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 0 1 7 18a9.953 9.953 0 0 1-5.385-1.572ZM16.25 5.75a.75.75 0 0 0-1.5 0v2h-2a.75.75 0 0 0 0 1.5h2v2a.75.75 0 0 0 1.5 0v-2h2a.75.75 0 0 0 0-1.5h-2v-2Z" />
-                </svg>
-                </div>
-                <h2 class="hero-feature-title">Client Management</h2>
-                <p class="hero-feature-details">Full control over clients, teams and dossier access — managed from one secure dashboard.</p>
-                <p class="hero-feature-link">Find out more →</p>
-                
-              </a>
-
-              <!-- Feature 5: Marketing Management Engine -->
-              <a class="hero-feature" href="/marketing">
-                <div class="hero-feature-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" :fill="isDark ? iconColorNight : iconColorDay" class="size-5">
-                    <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 0 0 1.06 0l7.22-7.22v5.69a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0 0 1.5h5.69l-7.22 7.22a.75.75 0 0 0 0 1.06Z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-                <h2 class="hero-feature-title">Marketing Management Engine</h2>
-                <p class="hero-feature-details">Full control over clients, teams and dossier access — managed from one secure dashboard.</p>
-                <p class="hero-feature-link">Find out more →</p>
-                
-              </a>
-
-              <!-- Feature 6: Secure and Trusted Environment -->
-              <a class="hero-feature" href="/security">
-                <div class="hero-feature-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" :stroke="isDark ? iconColorNight : iconColorDay" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
-                  </svg>
-
-                </div>
-                <h2 class="hero-feature-title">Secure</h2>
-                <p class="hero-feature-details">Full control over clients, teams and dossier access — managed from one secure dashboard.</p>
-                <p class="hero-feature-link">Find out more →</p>
-                
-              </a>
-            </div>
-
-        </div>
+    <VPHero
+      v-if="fm.hero"
+      class="VPHomeHero"
+      :name="fm.hero.name"
+      :text="fm.hero.text"
+      :tagline="fm.hero.tagline"
+      :image="fm.hero.image"
+      :actions="fm.hero.actions"
+    >
+      <template #home-hero-info-before><slot name="home-hero-info-before" /></template>
+      <template #home-hero-info><slot name="home-hero-info" /></template>
+      <template #home-hero-info-after><slot name="home-hero-info-after" /></template>
+      <template #home-hero-actions-after><slot name="home-hero-actions-after" /></template>
+      <template #home-hero-image><slot name="home-hero-image" /></template>
+    </VPHero>
   </div>
-
-  
-
-  
-
-  
-
-
-  
-
-
-
-
-
-
 </template>
+  
 
 <style scoped>
 .hero {
-  position: relative;
+  /* position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: center; */
   min-height: 100vh;
   width: 100%;
   overflow: hidden;

@@ -36,9 +36,9 @@ function handleLinkClick(event) {
                   </svg>
     </div>
     <div class="feature-text">
-      <span class="feature-title">Secure</span>
+      <span class="feature-title">Secure digital communication </span>
       <span class="feature-description">
-        Work in a secure environment
+        Always in a secure environment
       </span>
     </div>
   </a>

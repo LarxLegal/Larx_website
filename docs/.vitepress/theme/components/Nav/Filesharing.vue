@@ -38,9 +38,9 @@ function handleLinkClick(event) {
       </svg>
     </div>
     <div class="feature-text">
-      <span class="feature-title">Client Portal</span>
+      <span class="feature-title">Structured online document access </span>
       <span class="feature-description">
-        Share documents securely with clients and colleagues
+       24/7 access to information 
       </span>
     </div>
   </a>

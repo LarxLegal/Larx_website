@@ -57,34 +57,48 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: {
       light: '/Logo/larx_logo.svg',
-      dark: '/Logo/larx_logo.svg'
+      dark: '/Logo/larx_logo_night.svg'
     },
     footer: {
       message: 'Released under the <a href="https://github.com/vuejs/vitepress/blob/main/LICENSE">MIT License</a>.',
       copyright: 'Copyright © 2019-present <a href="https://github.com/yyx990803">Larx Legal</a>'
     },
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Features',
+     
+      { text: 'The digital experience for your client',
         items: [  
           { 
-            component: 'Filesharing'
-          },
-          { 
-            component: 'DossierManagement'
+            component: 'ClientPortal'
           },
           { 
             component: 'Collaboration'
           },
           { 
+            component: 'RealTime'
+          },
+          { 
+            component: 'Security'
+          },
+          
+          
+          
+        ]
+      },
+      { text: 'The digital experience for your firm',
+        items: [  
+          { 
+            component: 'NoDisruption'
+          },
+          { 
+            component: 'DossierManagement'
+          },
+          { 
             component: 'ClientManagement'
           },
-          /* { 
+          { 
             component: 'Marketing'
-          }, */
-          /* { 
-            component: 'Security'
-          }, */
+          },
+          
           
         ]
       },

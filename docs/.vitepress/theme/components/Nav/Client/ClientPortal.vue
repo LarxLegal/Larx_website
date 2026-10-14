@@ -1,14 +1,16 @@
 <script setup lang="ts">
+
 import { withBase } from 'vitepress'
-import { useData } from 'vitepress'
 import { ref } from 'vue';
+import { useData } from 'vitepress'
 
 
 const { isDark } = useData()
 
+/* console.log('isDark in Filesharing', isDark) */
+
 let iconColorNight = ref('#c16200');
 let iconColorDay = ref('#9a4224');
-
 function handleLinkClick(event) {
   const dropdown = event.currentTarget.closest('.VPMenu')
   
@@ -24,20 +26,21 @@ function handleLinkClick(event) {
 
   if (closeScreen) closeScreen()
 }
+
 </script>
 
 <template>
-  <a class="feature-item" :href="withBase('/collaboration')" @click="handleLinkClick">
+  <a class="feature-item" :href="withBase('/filesharing')" @click="handleLinkClick">
     <div class="feature-icon">
       <!-- "files" icon from simple-icons -->
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="24" height="24" stroke-width="1.5" :stroke="isDark ? iconColorNight : iconColorDay" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25" />
-                  </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24" :fill="isDark ? iconColorNight : iconColorDay" class="size-5">
+        <path d="M13 4.5a2.5 2.5 0 1 1 .702 1.737L6.97 9.604a2.518 2.518 0 0 1 0 .792l6.733 3.367a2.5 2.5 0 1 1-.671 1.341l-6.733-3.367a2.5 2.5 0 1 1 0-3.475l6.733-3.366A2.52 2.52 0 0 1 13 4.5Z" />
+      </svg>
     </div>
     <div class="feature-text">
-      <span class="feature-title">Collaboration Environment</span>
+      <span class="feature-title">Client Portal +</span>
       <span class="feature-description">
-        Collaborate effectively with team members in real-time
+       24/7 access to information per dossier
       </span>
     </div>
   </a>
@@ -67,6 +70,7 @@ function handleLinkClick(event) {
   flex-shrink: 0;
   width: 44px;
   border-radius: 6px;
+  /* background-color: var(--vp-c-brand-soft); */
   color: var(--vp-c-brand-1);
 }
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { inBrowser } from 'vitepress'
+import { useWindowScroll } from '@vueuse/core'
 import { computed, provide, watchEffect, onMounted, onUnmounted, ref, nextTick, watch } from 'vue'
 /* import { useData } from 'vitepress/dist/client/theme-default/composables/data.js' */
 import { useNav } from 'vitepress/dist/client/theme-default/composables/nav.js'
@@ -15,6 +16,22 @@ const router = useRouter()
 let allNavbarElements = [];
 const isScrolled = ref(false);
 const isHome = ref(false);
+const { y } = useWindowScroll()
+
+watchEffect(() => {
+  if (y.value === 0) {
+    isScrolled.value = false
+  } else {
+    isScrolled.value = true
+  }
+console.log('isScrolled', isScrolled.value)
+console.log('isHome', isHome.value)
+})
+
+
+
+
+
 
 // Watch isDark and capture its state dynamically
 watch(isDark, (newValue, oldValue) => {
@@ -65,7 +82,18 @@ onMounted(async () => {
       el.style.setProperty('color', 'white', 'important');
       
     });
+  } else if (!isDark.value && y.value === 0) {
+      allNavbarElements.forEach(el => {
+      el.style.setProperty('color', 'white', 'important');
+  });
   }
+  /* if (!isDark.value && !isScrolled.value) {
+      allNavbarElements.forEach(el => {
+      el.style.setProperty('color', 'white', 'important');
+  });
+  } */
+  
+
 
   if (allNavbarElements.length === 0) {
     console.warn("Hero Component: No navbar elements found.");
@@ -74,7 +102,7 @@ onMounted(async () => {
   
 });
 
-
+// checks if navbar is required based on values in the frontmatter file
 const hasNavbar = computed(() => {
   return frontmatter.value.navbar !== false
 })

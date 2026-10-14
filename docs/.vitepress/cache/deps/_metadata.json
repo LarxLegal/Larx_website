@@ -2,30 +2,36 @@
   "hash": "bb932813",
   "configHash": "0ef925bf",
   "lockfileHash": "e61430fd",
-  "browserHash": "a58762bc",
+  "browserHash": "ce84ed15",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "c8e4aa70",
+      "fileHash": "1449e29d",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/vitepress/node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "1aeed9fc",
+      "fileHash": "a11bebe1",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/vitepress/node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "d24efd44",
+      "fileHash": "6333fba9",
       "needsInterop": false
     },
     "pinia": {
       "src": "../../../../node_modules/pinia/dist/pinia.js",
       "file": "pinia.js",
-      "fileHash": "58ba2bcb",
+      "fileHash": "48da8be3",
+      "needsInterop": false
+    },
+    "@vueuse/core": {
+      "src": "../../../../node_modules/@vueuse/core/dist/index.js",
+      "file": "@vueuse_core.js",
+      "fileHash": "f09b1b0f",
       "needsInterop": false
     }
   },
