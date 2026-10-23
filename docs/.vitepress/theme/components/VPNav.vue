@@ -11,41 +11,83 @@ import { useData } from 'vitepress'
 
 // Destructure isDark from the shared data object
 
+
 const { isDark } = useData()
-const router = useRouter()
+const { route } = useRouter()
 let allNavbarElements = [];
-const isScrolled = ref(false);
-const isHome = ref(false);
+
+
+console.log('route', route.path)
+const isHome = computed(() => {
+  if (route.path === '/') {
+    return true
+  } else {
+    return false
+  }
+});
+console.log('isHome', isHome.value)
+/* const isScrolled = computed(() => {
+  if (y.value === 0) {
+    return true
+  } else {
+    return false
+  }
+}) */
+
+const isScrolled = ref(false)
+
+
 const { y } = useWindowScroll()
 
-watchEffect(() => {
-  if (y.value === 0) {
-    isScrolled.value = false
-  } else {
-    isScrolled.value = true
+/* watchEffect(() => {
+  const groupA = document.querySelectorAll('nav a span');
+  const groupB = document.querySelectorAll('p');
+  const individualEl = document.querySelector('a span');
+  const individualEl2 = document.querySelector('div button span');
+
+  // 2. Combine them into a single Array, using a Set to filter out duplicates
+  allNavbarElements = Array.from(new Set([...groupA, ...groupB, individualEl, individualEl2].filter(Boolean)));
+
+  if (y.value === 0 && isHome.value === true && isDark.value === false) {
+    console.log('should be white')
+      allNavbarElements.forEach(el => {
+          el.style.setProperty('color', 'white', 'important');
+        });
+  } else if (isHome.value === true && isDark.value === false) {
+    allNavbarElements.forEach(el => {
+          el.style.setProperty('color', 'black', 'important');
+        });
+
+        console.log('should be black')
   }
 console.log('isScrolled', isScrolled.value)
+console.log('isDark', isDark.value)
 console.log('isHome', isHome.value)
-})
+}) */
 
 
-
-
-
+/* watchEffect(() => {
+  if (isScrolled.value === false && isHome.value === true && isDark.value === false) {
+      allNavbarElements.forEach(el => {
+          el.style.setProperty('color', 'white', 'important');
+        });
+  }
+}) */
 
 // Watch isDark and capture its state dynamically
 watch(isDark, (newValue, oldValue) => {
   console.log(`Theme changed! Old: ${oldValue}, New: ${newValue}`)
+
+  console.log('value of isDark in watch', isDark.value)
   
   if (newValue) {
-  
         allNavbarElements.forEach(el => {
           el.style.setProperty('color', 'white', 'important');
         });
   } else {
-    allNavbarElements.forEach(el => {
-      el.style.setProperty('color', 'black', 'important');
-    });
+        allNavbarElements.forEach(el => {
+          el.style.setProperty('color', 'black', 'important');
+        });
   }
 })
 
@@ -72,7 +114,15 @@ onMounted(async () => {
   // 2. Combine them into a single Array, using a Set to filter out duplicates
   allNavbarElements = Array.from(new Set([...groupA, individualEl, individualEl2].filter(Boolean)));
 
-  if (isDark.value && isHome.value) {
+  /* if (isDark.value === false && isHome.value === true && isScrolled.value === false) {
+    allNavbarElements.forEach(el => {
+      el.style.setProperty('color', 'white', 'important');
+      
+    });
+  } */
+
+
+  /* if (isDark.value && isHome.value) {
     allNavbarElements.forEach(el => {
       el.style.setProperty('color', 'white', 'important');
       
@@ -82,11 +132,11 @@ onMounted(async () => {
       el.style.setProperty('color', 'white', 'important');
       
     });
-  } else if (!isDark.value && y.value === 0) {
+  } */ /* else if (isDark.value !== true && isScrolled.value === false && isHome.value === true) {
       allNavbarElements.forEach(el => {
       el.style.setProperty('color', 'white', 'important');
   });
-  }
+  } */
   /* if (!isDark.value && !isScrolled.value) {
       allNavbarElements.forEach(el => {
       el.style.setProperty('color', 'white', 'important');

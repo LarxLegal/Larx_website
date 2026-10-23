@@ -2,11 +2,21 @@
 
 
 import { withBase } from 'vitepress'
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useData } from 'vitepress'
 import VPHero from 'vitepress/dist/client/theme-default/components/VPHero.vue'
 
+const officeBuildingHero = computed(() => {
 
+    const path = '/images/Home/Hero/hero.jpg'
+  
+  return {  backgroundImage: `url(${path})`, 
+            backgroundSize: 'cover',
+            backgroundPosition: `50% 20%`,
+
+
+        }
+})
 
 
 const { frontmatter: fm } = useData()
@@ -30,14 +40,16 @@ const { frontmatter: fm } = useData()
       <template #home-hero-image><slot name="home-hero-image" /></template>
     </VPHero>
   </div>
+  
 </template>
   
 
 <style scoped>
 .hero {
-  /* position: relative;
+  position: relative;
   display: flex;
-  justify-content: center; */
+  flex-direction: column;
+  justify-content: center;
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
@@ -90,12 +102,11 @@ const { frontmatter: fm } = useData()
   margin: 0;
 }
 
-.hero-text {
+.VPHomeHero {
   font-size: clamp(1.75rem, 5vw, 3rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: #ffffff;
   margin: 8px 0 0;
 }
 

@@ -5,8 +5,8 @@ layout: home
 
 hero:
   name: "Larx Legal"
-  text: "Collaboration for law firms"
-  tagline: Improve collaboration with your client and win.
+  text: "your client expects an excellent online experience when engaging with your firm"
+  tagline: Offer your client an dedicated private and secure environment through which your client can interact, collaborate and engage with your firm, the same how you engage with your bank online
   actions:
     - theme: brand
       text: Book a demo
